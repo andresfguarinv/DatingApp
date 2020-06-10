@@ -16,7 +16,7 @@
     "@angular/compiler": "~9.1.0",
     "@angular/core": "~9.1.0",
     "@angular/forms": "~9.1.0",
-    "@angular/platform-browser": "~9.1.0",
+    "@angular/platform-browser": "^9.1.10",
     "@angular/platform-browser-dynamic": "~9.1.0",
     "@angular/router": "~9.1.0",
     "@auth0/angular-jwt": "^4.0.0",
