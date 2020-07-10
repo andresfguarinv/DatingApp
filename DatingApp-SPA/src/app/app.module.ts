@@ -33,6 +33,7 @@ import { PhotoEditorComponent } from './members/photo-editor/photo-editor.compon
 import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
 import { MemberListResolver } from './_resolvers/member-list.resolver';
 import { MemberEditResolver } from './_resolvers/member-edit.resolver';
+import { ListsResolver } from './_resolvers/lists.resolver';
 import { PreventUnSavedChanges } from './_guards/prevent-unsaved-changes.guard';
 
 export function tokenGetter() {
@@ -83,6 +84,7 @@ export function tokenGetter() {
       MemberListResolver,
       MemberDetailResolver,
       MemberEditResolver,
+      ListsResolver,
       PreventUnSavedChanges
    ],
    bootstrap: [
