@@ -83,12 +83,18 @@ namespace DatingApp.Api
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             
             app.UseAuthentication();
-
             app.UseAuthorization();
+
+
+            // Configure api for use spa from wwwroot
+            app.UseDefaultFiles();
+            app.UseStaticFiles();            
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                // Delegate routing to spa
+                endpoints.MapFallbackToController("Index", "Fallback");
             });
         }
     }
