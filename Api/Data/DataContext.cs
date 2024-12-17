@@ -3,13 +3,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Api.Data
 {
-    public class DataContext : DbContext
+    public class DataContext(DbContextOptions options) : DbContext(options)
     {
         public DbSet<AppUser> Users { get; set; }
-        
-        public DataContext(DbContextOptions options) : base(options)
-        {
-            
-        }
     }
 }

@@ -21,22 +21,24 @@ namespace Api.Controllers
 
             if (await UserExists(registerDto.Username)) return BadRequest("Username is taken");
 
-            var user = new AppUser
-            {
-                UserName = registerDto.Username,
-                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
-                PasswordSalt = hmac.Key
-            };
+            return Ok();
 
-            var userDto = new UserDto {
-                Username = user.UserName,
-                Token = tokenService.CreateToken(user)
-            };
+            // var user = new AppUser
+            // {
+            //     UserName = registerDto.Username,
+            //     PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
+            //     PasswordSalt = hmac.Key
+            // };
 
-            context.Users.Add(user);
-            await context.SaveChangesAsync();
+            // var userDto = new UserDto {
+            //     Username = user.UserName,
+            //     Token = tokenService.CreateToken(user)
+            // };
 
-            return userDto;
+            // context.Users.Add(user);
+            // await context.SaveChangesAsync();
+
+            // return userDto;
         }
 
         [AllowAnonymous]
