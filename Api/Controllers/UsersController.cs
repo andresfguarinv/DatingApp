@@ -1,9 +1,11 @@
 using Api.Dtos;
 using Api.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {
+
     public class UsersController(IUserRepository userRepository) : BaseApiController
     {
         
