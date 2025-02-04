@@ -1,6 +1,7 @@
 using Api.Dtos;
 using Api.Entities;
 using Api.Extensions;
+using Api.Helpers;
 using Api.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -13,9 +14,12 @@ namespace Api.Controllers
     {
         
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers() 
+        public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers([FromQuery]UserParams userParams) 
         {
-            var users = await userRepository.GetMembersAsync();
+            var users = await userRepository.GetMembersAsync(userParams);
+
+            Response.AddPaginationHeader(users);
+
             return Ok(users);
         }
 
