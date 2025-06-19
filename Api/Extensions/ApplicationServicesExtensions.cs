@@ -2,6 +2,7 @@ using Api.Data;
 using Api.Helpers;
 using Api.Interfaces;
 using Api.Services;
+using Api.SignalR;
 using Microsoft.EntityFrameworkCore;
 
 namespace Api.Extensions
@@ -25,6 +26,8 @@ namespace Api.Extensions
             services.AddScoped<LogUserActivity>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
+            services.AddSignalR();
+            services.AddSingleton<PresenceTracker>();
 
             return services;
         }
